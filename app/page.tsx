@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import { Sparkles, Github, Zap, Linkedin, Instagram, Mail, Code2, Brain, Rocket, AlertCircle } from 'lucide-react';
+import { Sparkles, Github, Linkedin, Instagram, Mail, Code2, Brain, Rocket, AlertCircle } from 'lucide-react';
 import { Toaster } from 'react-hot-toast';
 import toast from 'react-hot-toast';
 import CodeInput from './components/CodeInput';
@@ -57,9 +57,9 @@ export default function Home() {
 
       setExplanations(data.explanations);
       toast.success('Code explained successfully!');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error:', error);
-      const errorMessage = error.message || 'Failed to explain code. Please check your API key.';
+      const errorMessage = error instanceof Error ? error.message : 'Failed to explain code. Please check your API key.';
       setError(errorMessage);
       toast.error(errorMessage);
     } finally {

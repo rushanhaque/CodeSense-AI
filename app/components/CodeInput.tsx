@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Send, Sparkles, Trash2, Copy, Info } from 'lucide-react';
 import toast from 'react-hot-toast';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface CodeInputProps {
   onExplain: (code: string, language: string) => void;

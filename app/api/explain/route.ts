@@ -440,10 +440,10 @@ Return ONLY the JSON array.`;
     });
 
     return NextResponse.json({ explanations, source: 'rule-based' });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error explaining code:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to explain code' },
+      { error: error instanceof Error ? error.message : 'Failed to explain code' },
       { status: 500 }
     );
   }
